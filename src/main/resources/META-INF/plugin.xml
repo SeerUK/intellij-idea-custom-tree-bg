@@ -1,0 +1,29 @@
+<idea-plugin version="2">
+    <id>com.github.seeruk.custom-tree-bg</id>
+    <name>Custom </name>
+    <version>1.0</version>
+    <vendor email="elliot@elliotwright.co" url="http://elliotwright.co">Elliot Wright</vendor>
+
+    <description><![CDATA[
+      Compile yourself to choose a custom RGB background color for the tree view.
+    ]]></description>
+
+    <change-notes><![CDATA[
+      N/A
+    ]]>
+    </change-notes>
+
+    <idea-version since-build="131"/>
+
+    <depends>com.intellij.modules.lang</depends>
+
+    <extensions defaultExtensionNs="com.intellij">
+        <projectViewPane implementation="com.github.seeruk.ColorIdeProjectViewPane"/>
+    </extensions>
+
+    <project-components>
+        <component>
+            <implementation-class>com.github.seeruk.ColorIdeProjectComponent</implementation-class>
+        </component>
+    </project-components>
+</idea-plugin>
