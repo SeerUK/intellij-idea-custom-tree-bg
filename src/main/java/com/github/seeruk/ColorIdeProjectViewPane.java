@@ -49,6 +49,8 @@ public class ColorIdeProjectViewPane extends ProjectViewPane {
         tree.setForeground(new Color(0, 0, 0));
         tree.setBackground(new Color(229, 229, 229));
 
+        tree.setRowHeight(20);
+
         return tree;
     }
 }
