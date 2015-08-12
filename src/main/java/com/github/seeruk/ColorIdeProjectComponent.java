@@ -1,10 +1,10 @@
 /**
  * This file is part of the "intellij-idea-custom-tree-bg" project.
- * <p>
+ * <p/>
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the LICENSE is distributed on an "AS IS" BASIS,
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * <p>
+ * <p/>
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
@@ -19,7 +19,11 @@ import com.intellij.openapi.extensions.ExtensionPoint;
 import com.intellij.openapi.extensions.Extensions;
 import com.intellij.openapi.extensions.ExtensionsArea;
 import com.intellij.openapi.project.Project;
+import com.intellij.ui.FileColorManager;
+import com.intellij.ui.tabs.FileColorManagerImpl;
 import org.jetbrains.annotations.NotNull;
+
+import static com.intellij.ui.tabs.FileColorManagerImpl.setEnabledForProjectView;
 
 /**
  * ColorIdeProjectComponent
@@ -49,6 +53,15 @@ public class ColorIdeProjectComponent implements ProjectComponent {
     @Override
     public void projectOpened() {
         replaceStandardProjectViewWithColored();
+        replaceProjectViewColorShit();
+    }
+
+    private void replaceProjectViewColorShit() {
+        FileColorManager colorManager = FileColorManager.getInstance(project);
+
+        if (colorManager instanceof FileColorManagerImpl) {
+            setEnabledForProjectView(false);
+        }
     }
 
     private void replaceStandardProjectViewWithColored() {
